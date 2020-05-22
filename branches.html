@@ -55,7 +55,7 @@
             var cell5 = row.insertCell(4)
 
             cell1.innerHTML = branchList[i].appId;
-            cell2.innerHTML = branchList[i].branchId;
+            cell2.innerHTML = branchList[i].branchId + "  <a href='builds.html?id=" + branchList[i].branchId + "'>Open</a>";
             cell3.innerHTML = branchList[i].name;
             cell4.innerHTML = branchList[i].liveBuildId;
             cell5.innerHTML = branchList[i].createdAt;
