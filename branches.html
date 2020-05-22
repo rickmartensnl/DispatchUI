@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dispatch UI - All Branches</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <script type='text/javascript'>
+        window.ipcRenderer = require('electron').ipcRenderer;
+    </script>
+</head>
+<body>
+<header>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="branches.html">Branches</a></li>
+        <li><a href="builds.html">Builds</a></li>
+    </ul>
+</header>
+
+<table style="width:100%">
+    <thead style="text-align: left;">
+        <tr>
+            <th>Application ID</th>
+            <th>Branch ID</th>
+            <th>Name</th>
+            <th>Live Build ID</th>
+            <th>Created At</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+        <tr>
+            <td>Loading...</td>
+        </tr>
+    </tbody>
+</table>
+<button id='refresh-branches'>Refresh Branches</button>
+
+<script src="./gui-funct.js"></script>
+<script>
+    login();
+    showBranches('702393942171320341');
+
+    setTimeout(function () {
+        var tableBody = document.getElementById("tableBody");
+        var newTableBody = document.createElement('tbody');
+        tableBody.parentNode.replaceChild(newTableBody, tableBody);
+
+        for (i = 0; i < branchList.length; i++) {
+            var row = newTableBody.insertRow()
+            var cell1 = row.insertCell(0)
+            var cell2 = row.insertCell(1)
+            var cell3 = row.insertCell(2)
+            var cell4 = row.insertCell(3)
+            var cell5 = row.insertCell(4)
+
+            cell1.innerHTML = branchList[i].appId;
+            cell2.innerHTML = branchList[i].branchId;
+            cell3.innerHTML = branchList[i].name;
+            cell4.innerHTML = branchList[i].liveBuildId;
+            cell5.innerHTML = branchList[i].createdAt;
+        }
+    }, 2000);
+
+    document.getElementById("refresh-branches").addEventListener("click", function (e) {
+        var tableBody = document.getElementById("tableBody");
+        var newTableBody = document.createElement('tbody');
+        tableBody.parentNode.replaceChild(newTableBody, tableBody);
+
+        for (i = 0; i < branchList.length; i++) {
+            var row = newTableBody.insertRow()
+            var cell1 = row.insertCell(0)
+            var cell2 = row.insertCell(1)
+            var cell3 = row.insertCell(2)
+            var cell4 = row.insertCell(3)
+            var cell5 = row.insertCell(4)
+
+            cell1.innerHTML = branchList[i].appId;
+            cell2.innerHTML = branchList[i].branchId;
+            cell3.innerHTML = branchList[i].name;
+            cell4.innerHTML = branchList[i].liveBuildId;
+            cell5.innerHTML = branchList[i].createdAt;
+        }
+    });
+</script>
+</body>
+</html>

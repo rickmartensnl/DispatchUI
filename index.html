@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dispatch UI - Welcome</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <script type='text/javascript'>
+        window.ipcRenderer = require('electron').ipcRenderer;
+    </script>
+</head>
+<body>
+<header>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="branches.html">Branches</a></li>
+        <li><a href="builds.html">Builds</a></li>
+    </ul>
+</header>
+
+<h1>Dispatch UI</h1>
+<p>Welcome to Dispatch UI! This project is still a work in progress.</p>
+
+<script src="./gui-funct.js"></script>
+<script>
+    login();
+</script>
+</body>
+</html>
