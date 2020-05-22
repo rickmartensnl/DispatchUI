@@ -10,7 +10,7 @@ function showOS() {
 }
 
 function login() {
-    const process = require('child_process');   // The power of Node.JS
+    const process = require('child_process');
 
     showOS();
     var cmd = (is.windows()) ? 'test.bat' : './dispatch'; //TODO: change test.bat
@@ -35,7 +35,7 @@ function login() {
 }
 
 function showBranches(appId) {
-    const process = require('child_process');   // The power of Node.JS
+    const process = require('child_process');
 
     showOS();
     var cmd = (is.windows()) ? 'test.bat' : './dispatch'; //TODO: change test.bat
