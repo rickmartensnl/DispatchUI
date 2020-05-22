@@ -39,7 +39,7 @@
 <script src="./gui-funct.js"></script>
 <script>
     login();
-    showBranches(''); // fix Automatic select from textbox.
+    showBranches(require('electron').remote.getGlobal('MyGlobalObject').applicationId);
 
     setTimeout(function () {
         var tableBody = document.getElementById("tableBody");
@@ -63,6 +63,8 @@
     }, 2000);
 
     document.getElementById("refresh-branches").addEventListener("click", function (e) {
+        console.log()
+
         var tableBody = document.getElementById("tableBody");
         var newTableBody = document.createElement('tbody');
         tableBody.parentNode.replaceChild(newTableBody, tableBody);

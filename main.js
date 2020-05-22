@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, remote } = require('electron')
 
 function createWindow () {
     // Create the browser window.
@@ -15,6 +15,10 @@ function createWindow () {
 
     // Open the DevTools.
     // win.webContents.openDevTools()
+}
+
+global.MyGlobalObject = {
+    applicationId: ''
 }
 
 // This method will be called when Electron has finished

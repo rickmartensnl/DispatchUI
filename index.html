@@ -21,9 +21,20 @@
 <h1>Dispatch UI</h1>
 <p>Welcome to Dispatch UI! This project is still a work in progress.</p>
 
+<p>Before continuing insert your application id.</p>
+<input type="text" id="app-id-box" name="app-id-box">
+<button id='app-id-button'>Load application</button>
+
 <script src="./gui-funct.js"></script>
 <script>
     login();
+    
+    document.getElementById('app-id-box').value = require('electron').remote.getGlobal('MyGlobalObject').applicationId;
+
+    document.getElementById("app-id-button").addEventListener("click", function (e) {
+        require('electron').remote.getGlobal('MyGlobalObject').applicationId = document.getElementById("app-id-box").value;
+        showBranches(require('electron').remote.getGlobal('MyGlobalObject').applicationId);
+    });
 </script>
 </body>
 </html>
